@@ -1,6 +1,33 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+var validLength = [];
+var validInput = Range(8, 128)
+
+var userLength = prompt("Enter the length of password between 8 - 128.");
+passwordLength()
+
+function passwordLength() {
+userLength = prompt("Enter the length of password between 8 - 128.");
+if (userLength<8||userLength>128||userLength==isNaN(userLength)===true)
+  var userLength
+else if(userLength === null)
+  alert("Please enter a number between 8 - 128.")
+else
+    askAgain()
+}
+
+function askAgain(){
+  userLength = prompt("Enter the length of password between 8 - 128.");
+if (userLength<8||userLength>128||userLength==isNaN(userLength)===true)
+  var userLength
+else if(userLength === null)
+  alert("Please enter a number between 8 - 128.")
+else
+    askAgain()
+}
+
+
 
 function lowerAlpha() {
   return String.fromCharCode(Math.floor(Math.random() *26) +97) 
@@ -19,26 +46,18 @@ function RandomSpecial() {
   return specialCharacter[Math.floor(Math.random() * specialCharacter.length)];
 }
 
-// var random = function(x){
-//   var value = x[Math.floor(Math.random() * x.length)]
-//   return value
-// }
 
-var userLength = prompt("Select length of password between 8-128.");
-var userNumber = confirm("Do you want to include numbers?");
-var userSpecial = confirm("Do you want to include special characters?");
-var userAlpha = confirm("Do you want to include letters?");
+
+//for (let i = 0; i < userLength; i++){
+  
+
 
 
 
 // while statements
-function generatePassword() {
+ function generatePassword() {
 
-  if (userLength === alphabet) {
-array.push(alphabet)
-  }
-
-}
+ }
 
 
 // Write password to the #password input
@@ -52,5 +71,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
 
