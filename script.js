@@ -8,7 +8,7 @@ var generateBtn = document.querySelector("#generate");
 var userLength = [];
 //var userLength = Range(8, 128)parce javascript
 var passwordCharacters = [];
-var password = "";
+//var password = "";
 
 
 passwordLength()
@@ -46,16 +46,14 @@ if (userNumber === true || userSpecial === true || userAlphaUpper === true || us
 
 // while statements
 function generatePassword() {
-  
-  for (let i = 0; i < userLength; i++){
-  password = passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
-  
+  for (var i = 0; i < userLength; i++){
+  password = passwordCharacters.charAt[Math.floor(Math.random() * passwordCharacters.length)];
   
   }
   
-  return password
+  alert("You new password is:" + password + "!");
 }
-
+console.log(password);
 
 //Write password to the #password input
 function writePassword() {
@@ -67,24 +65,4 @@ function writePassword() {
 }
 
 //Add event listener to generate button
-generateBtn.addEventListener("click", writePassword)
-
- //functions used to create password characters
-
-
-//String.fromCharCode(Math.floor(Math.random() *26) +97) 
-// console.log(lowerAlpha);
-
-
-
-//   return String.fromCharCode(Math.floor(Math.random() * 26) +65)
-// }
-
-
-//   return String.fromCharCode(Math.floor(Math.random() *10) +48);
-// }
-
-// function RandomSpecial() {
-
-//   return specialCharacter[Math.floor(Math.random() * specialCharacter.length)];
-// }
+generateBtn.addEventListener("click", writePassword);
