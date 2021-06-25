@@ -1,19 +1,39 @@
 // Assignment Code
+var specialCharacter = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+var randomNumber = "0123456789"
+var upperAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var lowerAlpha = "abcdefghijklmnopqrstuvwxyz"
 var generateBtn = document.querySelector("#generate");
 
-var validLength = [];
-//var validInput = Range(8, 128)
+var userLength = [];
+//var userLength = Range(8, 128)parce javascript
+var passwordCharacters = [];
+var password = "";
+
 
 passwordLength()
 
 function passwordLength() {
+  passwordCharacters = [];
  var userLength = prompt("Enter the length of password between 8 - 128.")
  console.log(userLength)
 if (userLength>8 && userLength<128) {
   var userNumber = confirm("Do you want to include numbers?");
+  if (userNumber){
+    passwordCharacters.push(randomNumber)
+  }
   var userSpecial = confirm("Do you want to include special characters?");
+  if (userSpecial){
+    passwordCharacters.push(specialCharacter)
+  }
   var userAlphaUpper = confirm("Do you want to include upper case letters?");
+  if (userAlphaUpper){
+    passwordCharacters.push(upperAlpha)
+  }
   var userAlphaLower = confirm("Do you want to include lower case letters?");
+  if (userAlphaLower){
+    passwordCharacters.push(lowerAlpha)
+  }
 if (userNumber === true || userSpecial === true || userAlphaUpper === true || userAlphaLower === true) {
   console.log("checking user entry") 
 } else {
@@ -21,73 +41,50 @@ if (userNumber === true || userSpecial === true || userAlphaUpper === true || us
 }
 
 }
-else if(userLength === null){
-console.log("i am a null")  
-alert("Please enter a number between 8 - 128.")
-} else {
-    console.log("this is the else")
-  passwordLength()
 }
-}
-
-// function askAgain(){
-//   var userLength = prompt("Enter the length of password between 8 - 128.")
-//  console.log(userLength)
-// if (userLength>8 && userLength<128) {
-// console.log("i am here")}
-// else if(userLength === null){
-// console.log("i am a null")  
-// alert("Please enter a number between 8 - 128.")
-// } else {
-//     console.log("this is the else")
-//   askAgain()
-// }
-// }
-
-
-
- //functions used to create password characters
-function lowerAlpha() {
-  return String.fromCharCode(Math.floor(Math.random() *26) +97) 
-}
-
-function upperAlpha() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) +65)
-}
-
-function RandomNumber() {
-  return String.fromCharCode(Math.floor(Math.random() *10) +48);
-}
-
-function RandomSpecial() {
-  const specialCharacter = " !#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-  return specialCharacter[Math.floor(Math.random() * specialCharacter.length)];
-}
-
-
-
-// for (let i = 0; i < userLength; i++){
-//   while (userAlphaUpper === true) {
-//     upperAlpha()
-//   }
-// }
-
 
 
 // while statements
-//  function generatePassword() {
+function generatePassword() {
   
-//  }
+  for (let i = 0; i < userLength; i++){
+  password = passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+  
+  
+  }
+  
+  return password
+}
 
 
-// Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+//Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
+  passwordText.value = password;
 
+}
+
+//Add event listener to generate button
+generateBtn.addEventListener("click", writePassword)
+
+ //functions used to create password characters
+
+
+//String.fromCharCode(Math.floor(Math.random() *26) +97) 
+// console.log(lowerAlpha);
+
+
+
+//   return String.fromCharCode(Math.floor(Math.random() * 26) +65)
 // }
 
-// Add event listener to generate button
-//generateBtn.addEventListener("click", writePassword){}}
+
+//   return String.fromCharCode(Math.floor(Math.random() *10) +48);
+// }
+
+// function RandomSpecial() {
+
+//   return specialCharacter[Math.floor(Math.random() * specialCharacter.length)];
+// }
