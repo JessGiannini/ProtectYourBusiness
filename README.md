@@ -6,7 +6,7 @@ Keeping your online life safe all comes down to the strength of your password! T
 
 When you load the website it should look like this:
 
-![Getting Started](./assets/password.png)
+![Getting Started](./img/password.png)
 
 ## Built With
 
@@ -17,6 +17,8 @@ When you load the website it should look like this:
 ## Deployed Link
 
 - [See Live Site](https://jessgiannini.github.io/ProtectYourBusiness/)
+
+![Result](./img/passwordgen.png)
 
 ## Authors
 
